@@ -1,0 +1,209 @@
+:root{
+    --paper:#F7F3E8;
+    --paper-dark:#EDE6D3;
+    --mandi-green:#1F3D2B;
+    --mandi-green-light:#2E5540;
+    --turmeric:#C97A2B;
+    --brinjal:#5B2A45;
+    --ink:#2A2A2A;
+    --ink-soft:#5A5650;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Space Grotesk', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .bg-texture{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-color:var(--paper);
+  }
+
+  header{
+    position:relative; z-index:1;
+    padding:48px 24px 32px;
+    text-align:center;
+    border-bottom:3px solid var(--mandi-green);
+  }
+
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--turmeric);
+    font-weight:600;
+    margin-bottom:12px;
+  }
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:900;
+    font-size:clamp(32px, 6vw, 56px);
+    line-height:1.05;
+    margin:0 0 12px;
+    color:var(--mandi-green);
+  }
+
+  .subhead{
+    color:var(--ink-soft);
+    font-size:16px;
+    max-width:520px;
+    margin:0 auto;
+    line-height:1.5;
+  }
+
+  main{
+    position:relative; z-index:1;
+    max-width:720px;
+    margin:0 auto;
+    padding:40px 24px 80px;
+  }
+
+  .card{
+    background:var(--paper);
+    border:2px solid var(--mandi-green);
+    border-radius:4px;
+    padding:32px;
+    margin-bottom:24px;
+    box-shadow:6px 6px 0 rgba(31,61,43,0.12);
+  }
+
+  .field-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-bottom:16px;
+  }
+
+  @media (max-width:520px){
+    .field-row{grid-template-columns:1fr;}
+    .field-row.triple{grid-template-columns:1fr 1fr;}
+  }
+
+  label{
+    display:block;
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    font-weight:600;
+    margin-bottom:6px;
+  }
+
+  select, input{
+    width:100%;
+    padding:11px 12px;
+    border:1.5px solid var(--paper-dark);
+    border-radius:3px;
+    background:#fff;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:15px;
+    color:var(--ink);
+  }
+
+  select:focus, input:focus{
+    outline:none;
+    border-color:var(--turmeric);
+  }
+
+  button{
+    width:100%;
+    padding:16px;
+    margin-top:8px;
+    background:var(--mandi-green);
+    color:var(--paper);
+    border:none;
+    border-radius:3px;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:16px;
+    letter-spacing:0.02em;
+    cursor:pointer;
+    transition:background 0.15s ease, transform 0.1s ease;
+  }
+
+  button:hover{ background:var(--mandi-green-light); }
+  button:active{ transform:translateY(1px); }
+  button:disabled{ opacity:0.6; cursor:wait; }
+
+  /* Price board — the signature element */
+  .board{
+    display:none;
+    background:var(--mandi-green);
+    color:var(--paper);
+    border-radius:4px;
+    border:3px solid var(--turmeric);
+    padding:32px;
+    text-align:center;
+    position:relative;
+  }
+
+  .board.visible{ display:block; animation:reveal 0.4s ease; }
+
+  @keyframes reveal{
+    from{ opacity:0; transform:translateY(8px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .board-commodity{
+    font-size:14px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--turmeric);
+    font-weight:600;
+    position:relative;
+  }
+
+  .board-price{
+    font-family:'Fraunces', serif;
+    font-weight:900;
+    font-size:clamp(48px, 12vw, 84px);
+    line-height:1;
+    margin:14px 0 4px;
+    position:relative;
+  }
+
+  .board-unit{
+    font-size:13px;
+    color:rgba(247,243,232,0.65);
+    position:relative;
+  }
+
+  .board-meta{
+    margin-top:20px;
+    padding-top:16px;
+    border-top:1px solid rgba(247,243,232,0.2);
+    font-size:13px;
+    color:rgba(247,243,232,0.75);
+    position:relative;
+  }
+
+  .board-meta strong{ color:var(--paper); }
+
+  .error{
+    display:none;
+    background:#fdf1ee;
+    border:1.5px solid var(--brinjal);
+    color:var(--brinjal);
+    padding:14px 16px;
+    border-radius:3px;
+    font-size:14px;
+    margin-bottom:16px;
+  }
+
+  .error.visible{ display:block; }
+
+  footer{
+    text-align:center;
+    padding:24px;
+    font-size:13px;
+    color:var(--ink-soft);
+    position:relative; z-index:1;
+  }
+
+  footer a{ color:var(--mandi-green); }

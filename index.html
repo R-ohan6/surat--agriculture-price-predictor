@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surat Mandi Price Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-texture"></div>
+
+<header>
+  <div class="eyebrow">Surat APMC · Est. Fair Value</div>
+  <h1>The Mandi Price Board</h1>
+  <p class="subhead">A model-estimated wholesale price, trained on 20 years of Surat mandi records, weather, and festival demand.</p>
+</header>
+
+<main>
+  <div class="card">
+    <div id="error" class="error"></div>
+
+    <div class="field-row">
+      <div>
+        <label for="commodity">Commodity</label>
+        <select id="commodity"></select>
+      </div>
+      <div>
+        <label for="target_date">Date</label>
+        <input type="date" id="target_date">
+      </div>
+    </div>
+
+    <div class="field-row triple">
+      <div>
+        <label for="rainfall_mm">Today's Rain (mm)</label>
+        <input type="number" id="rainfall_mm" value="0" min="0" step="1">
+      </div>
+      <div>
+        <label for="rainfall_7day">7-Day Rain (mm)</label>
+        <input type="number" id="rainfall_7day" value="0" min="0" step="1">
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div>
+        <label for="temp_max">Max Temp (°C)</label>
+        <input type="number" id="temp_max" value="33" step="0.5">
+      </div>
+      <div>
+        <label for="temp_min">Min Temp (°C)</label>
+        <input type="number" id="temp_min" value="25" step="0.5">
+      </div>
+    </div>
+
+    <button id="predictBtn" onclick="predict()">Check Fair Value</button>
+  </div>
+
+  <div class="board" id="board">
+    <div class="board-commodity" id="boardCommodity">—</div>
+    <div class="board-price" id="boardPrice">₹0</div>
+    <div class="board-unit">per Quintal</div>
+    <div class="board-meta">
+      Last reported: <strong id="boardLast">—</strong> · Date: <strong id="boardDate">—</strong>
+    </div>
+  </div>
+</main>
+
+<footer>
+  Built on real Government of India mandi data (data.gov.in), Open-Meteo weather, and Indian festival signals.
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
