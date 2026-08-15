@@ -1,6 +1,6 @@
 // Change this to your deployed Render URL once live, e.g.
   // const API_BASE = "https://surat-price-api.onrender.com";
-  const API_BASE = "http://127.0.0.1:8000";
+  const API_BASE = "https://surat-agriculture-price-predictor.onrender.com";
 
   const commoditySelect = document.getElementById("commodity");
   const dateInput = document.getElementById("target_date");
